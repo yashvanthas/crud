@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Student
+{% endblock %}
+
+{% block content %}
+
+<div class="card form-card">
+
+    <div class="form-header">
+
+        <h1>Add Student</h1>
+
+        <p>
+            Enter the student's information below.
+        </p>
+
+    </div>
+
+
+    <form action="/add_student" method="POST">
+
+        <div class="form-group">
+
+            <label for="name">
+                Student Name </label>
+
+            <input type="text" name="name" id="name" placeholder="Enter student name" required>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="age">
+                Age
+            </label>
+
+            <input type="number" name="age" id="age" placeholder="Enter student age" min="1" max="100" required>
+
+        </div>
+        <div class="form-group">
+
+            <label for="course">Student Course</label>
+
+            <input type="text" name="course" id="course" placeholder="Enter student name" required>
+
+        </div>
+        <div class="form-group">
+
+            <label for="stream">Stream </label>
+
+            <input type="text" name="stream" id="stream" placeholder="Enter student name" required>
+
+        </div>
+
+        <button type="submit" class="btn-primary"> Add Student </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block title %}
+Students
+{% endblock %}
+
+{% block content %}
+
+<div class="students-header">
+
+    <div>
+        <h1>Our Students 👋</h1>
+        <p>Explore the list of registered students</p>
+    </div>
+
+    <!-- <a href="/add_student" class="add-student-btn">
+        + Add Student
+    </a> -->
+</div>
+
+<div class="student-grid">
+
+    {% for std in students %}
+
+    <div class="student-card">
+
+        <!-- Student Photo -->
+        <div class="student-photo">
+
+            <img src="https://i.pravatar.cc/500?img={{ ((std.id - 1) % 70) + 1 }}" alt="{{ std.name }}">
+
+            <span class="student-id">
+                #{{ std.id }}
+            </span>
+
+        </div>
+
+
+        <!-- Student Information -->
+        <div class="student-info">
+
+            <h2>{{ std.name }}</h2>
+
+
+            <div class="student-detail">
+
+                <span class="detail-icon">🎂</span>
+
+                <span>
+                    <strong>Age</strong>
+                    {{ std.age }}
+                </span>
+
+            </div>
+
+
+            <div class="student-detail">
+
+                <span class="detail-icon">📚</span>
+
+                <span>
+                    <strong>Course</strong>
+                    {{ std.course }}
+                </span>
+
+            </div>
+
+
+            <div class="student-detail">
+
+                <span class="detail-icon">🎓</span>
+
+                <span>
+                    <strong>Stream</strong>
+                    {{ std.stream }}
+                </span>
+
+            </div>
+
+
+            <!-- Buttons -->
+
+            <div class="student-actions">
+
+                <a href="/edit_student/{{ std.id }}" class="edit-btn">
+                    ✏ Edit
+                </a>
+
+
+                <form action="/delete_student/{{ std.id }}" method="POST">
+
+                    <button type="submit" class="delete-btn">
+                        🗑 Delete
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% else %}
+
+    <div class="no-students">
+
+        <div class="empty-icon">
+            🎓
+        </div>
+
+        <h2>No Students Found</h2>
+
+        <p>
+            Add your first student to the system.
+        </p>
+
+        <a href="/add_student" class="add-student-btn">
+            + Add Student
+        </a>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

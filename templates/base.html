@@ -1,0 +1,54 @@
+    <!DOCTYPE html>
+
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}Student Management System{% endblock %}
+    </title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    </head>
+
+    <body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <div class="logo-icon">S</div>
+            <div>
+                <span class="logo-title">Student</span>
+                <span class="logo-subtitle">Management</span>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="/student">Students</a>
+            <a href="/add_student" class="nav-add">
+                + Add Student
+            </a>
+        </div>
+
+    </nav>
+
+    <main class="container">
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+    <footer>
+        <p>© 2026 Student Management System</p>
+    </footer>
+    </body>
+    </html>
